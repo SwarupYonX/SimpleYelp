@@ -5,12 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import kotlinx.android.synthetic.main.item_restaurant.view.*
 
-class RestaurantsAdapter(val context: Context, val restaurants: MutableList<YelpRestaurant>) :
+class RestaurantsAdapter(val context: Context, val restaurants: List<YelpRestaurant>) :
     RecyclerView.Adapter<RestaurantsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_restaurant, parent, false))
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_restaurant, parent, false))
     }
 
     override fun getItemCount() = restaurants.size
